@@ -1,0 +1,27 @@
+.outerDiv
+{
+    background-color: #49bbf3;
+    align-content: center;
+    height: fit-content;
+    color: #fff;
+    margin: 0px auto;
+    padding: 5px;
+    position: absolute;
+}
+.leftDiv
+{
+    background-color: #efefef;
+    color: #000;
+    width: 48%;
+    float: left;
+}
+.rightDiv
+{
+    background-color: #efefef;
+    color: #000;
+    width: 48%;
+    float: right;
+}
+.profile{
+    width: 75%;
+}

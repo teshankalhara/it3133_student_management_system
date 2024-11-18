@@ -1,25 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import StudentTable from './components/studentTable/StudentTable'
+import { students } from './StudentsDb'
 
 function App() {
+  const [fontSize, setFontSize] = useState(20)
+  const [actBtn, setActBtn] = useState('M')
+
+  const fontChng = {
+    fontSize: `${fontSize}px`
+  }
+
+  const actBtnStyl=(btn)=>{
+    return {
+      fontWeight: actBtn === btn ? 'bold' : 'normal', 
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className='App'>
+        <h1>Students Information Portal</h1>
+        <hr />
+        <div>
+          <button
+            type='button'
+            onClick={() => {
+              setFontSize(16)
+              setActBtn('S')
+            }}
+            style={actBtnStyl('S')}
+            >
+            S
+          </button>
+
+          <button
+            type='button'
+            onClick={() => {
+              setFontSize(20)
+              setActBtn('M')
+            }}
+            style={actBtnStyl('M')}
+            >
+            M
+          </button>
+
+          <button
+            type='button'
+            onClick={() => {
+              setFontSize(24)
+              setActBtn('L')
+            }}
+            style={actBtnStyl('L')}
+            >
+            L
+          </button>
+        </div>
+        <hr />
+        <table width="100%" style={fontChng}>
+          <tbody>
+            <tr>
+              <td>
+                <StudentTable students={students} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
